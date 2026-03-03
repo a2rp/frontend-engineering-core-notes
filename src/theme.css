@@ -1,0 +1,73 @@
+/* theme.css */
+/* Frontend Engineering Core Notes Theme */
+
+:root {
+    /* Base - deep browser graphite */
+    --color-bg: #0b1016;
+    --color-surface: #121923;
+    --color-surface-2: #192231;
+
+    /* Primary - engine teal */
+    --color-primary: #14b8a6;
+    --color-primary-hover: #2dd4bf;
+
+    /* Accent - UI violet */
+    --color-accent: #8b5cf6;
+
+    /* Text */
+    --color-text-primary: #f3f6fb;
+    --color-text-secondary: #cbd5e1;
+    --color-text-muted: #94a3b8;
+
+    /* Borders */
+    --color-border: #263244;
+    --color-border-light: #334155;
+
+    /* Links */
+    --color-link: #14b8a6;
+    --color-link-hover: #2dd4bf;
+
+    /* States */
+    --color-success: #22c55e;
+    --color-error: #ef4444;
+    --color-warning: #f59e0b;
+
+    /* Code blocks */
+    --color-code-bg: #0f1722;
+    --color-code-border: #2b3648;
+
+    /* Shadow */
+    --color-shadow: rgba(0, 0, 0, 0.72);
+}
+
+/* Light Mode */
+
+html[data-theme="light"] {
+    --color-bg: #ffffff;
+    --color-surface: #f4f7fb;
+    --color-surface-2: #e8eef8;
+
+    --color-primary: #0d9488;
+    --color-primary-hover: #0f766e;
+
+    --color-accent: #7c3aed;
+
+    --color-text-primary: #0f172a;
+    --color-text-secondary: #334155;
+    --color-text-muted: #64748b;
+
+    --color-border: #dbe3f3;
+    --color-border-light: #cbd5e1;
+
+    --color-link: #0d9488;
+    --color-link-hover: #0f766e;
+
+    --color-success: #16a34a;
+    --color-error: #dc2626;
+    --color-warning: #d97706;
+
+    --color-code-bg: #f1f5f9;
+    --color-code-border: #e2e8f0;
+
+    --color-shadow: rgba(15, 23, 42, 0.08);
+}
