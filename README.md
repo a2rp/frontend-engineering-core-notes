@@ -2,7 +2,7 @@
 
 A structured single-page revision guide for frontend engineering. It covers browser internals, HTML, CSS layout, responsive design, React internals, rendering, architecture, and performance.
 
-![Frontend Engineering Core Notes screenshot](screenshot.png)
+![Frontend Engineering Core Notes screenshot](./screenshot.jpg)
 
 ## Features
 
