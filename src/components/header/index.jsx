@@ -1,24 +1,23 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Styled } from "./styled";
 import { FiMoon, FiSun, FiLayout, FiGlobe, FiLayers } from "react-icons/fi";
 
 const THEME_LS_KEY = "frontend-engineering-core-notes-theme";
 
+const getInitialTheme = () => {
+    try {
+        const storedTheme = localStorage.getItem(THEME_LS_KEY);
+        return storedTheme === "light" || storedTheme === "dark"
+            ? storedTheme
+            : "dark";
+    } catch {
+        return "dark";
+    }
+};
+
 const Header = () => {
     const [logoLoaded, setLogoLoaded] = useState(false);
-    const [theme, setTheme] = useState("dark");
-
-    useEffect(() => {
-        const storedTheme = localStorage.getItem(THEME_LS_KEY);
-        const initialTheme = storedTheme || "dark";
-        setTheme(initialTheme);
-
-        if (initialTheme === "light") {
-            document.documentElement.setAttribute("data-theme", "light");
-        } else {
-            document.documentElement.removeAttribute("data-theme");
-        }
-    }, []);
+    const [theme, setTheme] = useState(getInitialTheme);
 
     useEffect(() => {
         if (theme === "light") {
@@ -27,12 +26,14 @@ const Header = () => {
             document.documentElement.removeAttribute("data-theme");
         }
 
-        localStorage.setItem(THEME_LS_KEY, theme);
+        try {
+            localStorage.setItem(THEME_LS_KEY, theme);
+        } catch {
+            // Keep theme switching available when browser storage is blocked.
+        }
     }, [theme]);
 
-    const nextTheme = useMemo(() => {
-        return theme === "light" ? "dark" : "light";
-    }, [theme]);
+    const nextTheme = theme === "light" ? "dark" : "light";
 
     const handleToggle = () => {
         setTheme(nextTheme);

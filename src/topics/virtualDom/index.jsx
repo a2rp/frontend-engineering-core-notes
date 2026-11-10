@@ -62,7 +62,7 @@ const VirtualDom = () => {
                         <FiZap /> Efficient updates
                     </span>
                     <span className="pill">
-                        <FiCpu /> Real DOM is expensive
+                        <FiCpu /> Commit necessary DOM changes
                     </span>
                 </div>
             </div>
@@ -142,11 +142,12 @@ const VirtualDom = () => {
                             <section className="sec">
                                 <h3 className="h3">Why it exists</h3>
                                 <p className="p">
-                                    Directly updating the real DOM on every tiny
-                                    change is costly. Virtual DOM helps React:
-                                    <br />- batch changes
-                                    <br />- compute minimal updates
-                                    <br />- update DOM in a predictable way
+                                    React separates rendering from committing.
+                                    Reconciliation matches the next UI with the
+                                    previous tree, then the commit phase applies
+                                    the necessary DOM operations. DOM updates
+                                    can trigger browser layout or paint work, so
+                                    their cost depends on what changed.
                                 </p>
 
                                 <div className="callout">
@@ -156,11 +157,12 @@ const VirtualDom = () => {
                                     <div className="cText">
                                         <div className="cTitle">Key idea</div>
                                         <div className="cSub">
-                                            React does not re-render the whole
-                                            page in the browser. It re-runs your
-                                            component functions to build a new
-                                            UI description, then patches the DOM
-                                            for what changed.
+                                            React may call components to
+                                            calculate the next UI without
+                                            changing the DOM. During commit, it
+                                            applies the necessary changes; the
+                                            browser then handles layout and
+                                            painting as needed.
                                         </div>
                                     </div>
                                 </div>
@@ -363,10 +365,10 @@ const VirtualDom = () => {
 
                                 <div className="finalNote">
                                     In interviews, say it like this: "React
-                                    builds a Virtual DOM tree, diffs it with the
-                                    previous tree, and commits minimal updates
-                                    to the real DOM. Keys help keep identity
-                                    stable in lists."
+                                    renders a description of the next UI,
+                                    reconciles it with the previous tree, and
+                                    commits necessary DOM changes. Stable keys
+                                    help React match sibling items."
                                 </div>
                             </section>
                         </div>

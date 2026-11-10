@@ -189,7 +189,7 @@ const SemanticElements = () => {
                                 <h3>Why semantic matters</h3>
                                 <ul>
                                     <li>Screen readers understand structure</li>
-                                    <li>Search engines rank content better</li>
+                                    <li>Clearer document structure for browsers and search engines</li>
                                     <li>Code becomes self explanatory</li>
                                     <li>Better long term maintainability</li>
                                 </ul>

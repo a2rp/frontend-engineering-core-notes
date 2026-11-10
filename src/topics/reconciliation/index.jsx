@@ -91,10 +91,10 @@ const Reconciliation = () => {
                             <section className="sec">
                                 <h3>1) What is Reconciliation</h3>
                                 <p>
-                                    When state or props change, React creates a
-                                    new <strong>Virtual DOM</strong> tree. React
-                                    then compares the previous tree with the new
-                                    tree. This comparison process is called{" "}
+                                    When an update is triggered, React renders
+                                    the affected components to describe the next
+                                    UI. React reconciles that result with the
+                                    previous tree; this process is called{" "}
                                     <strong>Reconciliation</strong>.
                                 </p>
                             </section>
@@ -106,11 +106,10 @@ const Reconciliation = () => {
                                     Model. It represents HTML as a tree.
                                 </p>
                                 <p>
-                                    <strong>Virtual DOM</strong> is a
-                                    lightweight JavaScript object representation
-                                    of the real DOM. React works with this
-                                    instead of directly manipulating the real
-                                    DOM.
+                                    React elements describe the UI as a tree.
+                                    During rendering, React calculates the next
+                                    result; during commit, it applies necessary
+                                    changes to the browser DOM.
                                 </p>
 
                                 <pre className="code">{`// Example
@@ -131,17 +130,19 @@ function App() {
                             <section className="sec">
                                 <h3>3) Diffing Algorithm</h3>
                                 <p>
-                                    React uses a heuristic <strong>O(n)</strong>
-                                    diffing algorithm instead of comparing every
-                                    node deeply.
+                                    React uses heuristics to compare trees in
+                                    linear time under its documented
+                                    assumptions. This is a model of
+                                    reconciliation, not a guarantee that every
+                                    update has identical cost.
                                 </p>
 
                                 <div className="miniList">
                                     <div className="row">
                                         <span className="label">Rule 1</span>
                                         <span>
-                                            Different element types produce
-                                            different trees.
+                                            Different element types at the same
+                                            position replace the subtree.
                                         </span>
                                     </div>
 
@@ -207,9 +208,10 @@ function App() {
                             <section className="sec">
                                 <h3>7) Why Reconciliation is Fast</h3>
                                 <p>
-                                    React avoids expensive DOM operations.
-                                    Instead of rebuilding entire UI, it updates
-                                    only changed nodes.
+                                    React calculates the next UI before commit.
+                                    It applies the necessary DOM changes rather
+                                    than rebuilding the entire page for every
+                                    update.
                                 </p>
 
                                 <div className="callout">
@@ -234,7 +236,10 @@ function App() {
                                     </div>
                                     <div className="row">
                                         <span className="label">O(n)</span>
-                                        <span>Linear Time Complexity</span>
+                                        <span>
+                                            Linear under React's reconciliation
+                                            heuristics
+                                        </span>
                                     </div>
                                 </div>
                             </section>

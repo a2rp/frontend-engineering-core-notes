@@ -96,10 +96,11 @@ const ReactDeep = () => {
                             <section className="sec">
                                 <h3>1) Virtual DOM</h3>
                                 <p>
-                                    The <strong>Virtual DOM</strong> is a
-                                    lightweight JavaScript representation of the
-                                    real DOM. React compares previous and new
-                                    virtual trees before touching the browser.
+                                    React renders components into a description
+                                    of the next UI. During reconciliation, it
+                                    matches that result with the previous tree;
+                                    the commit phase applies the necessary DOM
+                                    changes.
                                 </p>
 
                                 <pre>{`function App() {
@@ -107,9 +108,10 @@ const ReactDeep = () => {
 }`}</pre>
 
                                 <p>
-                                    When state changes, React creates a new
-                                    virtual tree, compares it with the old one,
-                                    and updates only what changed.
+                                    A render does not always change the DOM. If
+                                    the output is unchanged, React can skip DOM
+                                    updates; when it differs, React commits the
+                                    necessary changes.
                                 </p>
                             </section>
 
@@ -124,10 +126,19 @@ const ReactDeep = () => {
 
                                 <ul>
                                     <li>
-                                        Different element type → full re-render
+                                        A different element type at a position
+                                        replaces that subtree and resets its
+                                        state.
                                     </li>
-                                    <li>Same type → update props only</li>
-                                    <li>Keys help React track list items</li>
+                                    <li>
+                                        The same type at the same position can
+                                        preserve state while its props and
+                                        children update.
+                                    </li>
+                                    <li>
+                                        Stable keys help React match sibling
+                                        items when their order changes.
+                                    </li>
                                 </ul>
 
                                 <pre>{`{items.map(item => (

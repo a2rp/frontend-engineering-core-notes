@@ -92,9 +92,10 @@ const SEO = () => {
                                 <p className="p">
                                     SEO stands for{" "}
                                     <strong>Search Engine Optimization</strong>.
-                                    It ensures that search engines like Google
-                                    understand your content structure, purpose,
-                                    and relevance.
+                                    It helps search engines discover and
+                                    understand useful pages. Clear content and
+                                    structure support this, but no single SEO
+                                    change guarantees indexing or rankings.
                                 </p>
                                 <p className="p">
                                     SEO is not tricks. It is clarity + structure
@@ -114,10 +115,11 @@ const SEO = () => {
 </head>`}</pre>
 
                                 <div className="note">
-                                    - Title appears in search result headline -
-                                    Meta description appears below title - Keep
-                                    title under 60 characters - Keep description
-                                    under 160 characters
+                                    Google may use the title and description as
+                                    inputs for a result, but it can rewrite the
+                                    title link or snippet. Write concise,
+                                    accurate text for people; there is no fixed
+                                    character count that guarantees display.
                                 </div>
                             </section>
 
@@ -130,9 +132,10 @@ const SEO = () => {
 <h3>Semantic Elements</h3>`}</pre>
 
                                 <div className="note">
-                                    - Only one h1 per page - Do not skip heading
-                                    levels randomly - Headings define document
-                                    hierarchy
+                                    Use headings to describe the content and
+                                    show its hierarchy. A clear page title is a
+                                    useful convention; heading count alone is
+                                    not a ranking guarantee.
                                 </div>
                             </section>
 
@@ -150,8 +153,10 @@ const SEO = () => {
 </nav>`}</pre>
 
                                 <div className="note">
-                                    Search engines understand article, nav,
-                                    header, footer better than div.
+                                    Use semantic elements for their meaning and
+                                    built-in landmarks. They improve structure
+                                    for people and assistive technology; they
+                                    do not guarantee higher rankings.
                                 </div>
                             </section>
 
@@ -161,7 +166,9 @@ const SEO = () => {
       href="https://example.com/frontend-engineering" />`}</pre>
 
                                 <div className="note">
-                                    Prevents duplicate content issues.
+                                    Signals the preferred URL for duplicate or
+                                    very similar pages. Search engines can
+                                    choose a different canonical URL.
                                 </div>
                             </section>
 
@@ -189,9 +196,10 @@ const SEO = () => {
                                     8) Performance as SEO signal
                                 </h3>
                                 <div className="note">
-                                    - Fast loading pages rank better - Core Web
-                                    Vitals matter - Optimize images and bundle
-                                    size
+                                    Core Web Vitals are among Google's ranking
+                                    signals, but good scores do not guarantee
+                                    rankings. Optimize images and bundles to
+                                    improve loading and the user experience.
                                 </div>
                             </section>
 
