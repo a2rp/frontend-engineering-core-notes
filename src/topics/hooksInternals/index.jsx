@@ -152,11 +152,15 @@ React expects the same order:
                                     2) Render phase vs commit phase
                                 </h3>
                                 <p className="p">
-                                    React work happens in two main phases:
+                                    React work has a render phase and a commit
+                                    phase, followed by effects:
                                     <br />- <strong>Render phase</strong> -
-                                    compute next UI (pure calculation)
+                                    calculate the next UI as a pure operation
                                     <br />- <strong>Commit phase</strong> -
-                                    apply changes to the DOM and run effects
+                                    apply the required DOM changes
+                                    <br />- <strong>Effects</strong> - run
+                                    layout and passive effects after the DOM
+                                    update
                                 </p>
 
                                 <div className="miniGrid">
@@ -184,7 +188,8 @@ React expects the same order:
                                             <span className="mono">
                                                 useEffect
                                             </span>{" "}
-                                            after paint.
+                                            usually after paint; effects caused
+                                            by an interaction may run earlier.
                                         </p>
                                     </div>
                                 </div>
@@ -193,11 +198,13 @@ React expects the same order:
                                     <div className="exTitle">
                                         Effects timing summary
                                     </div>
-                                    <pre className="code">{`Commit phase order (simplified):
+                                    <pre className="code">{`Typical order after a non-interaction update:
 1) DOM mutations (apply UI changes)
 2) useLayoutEffect callbacks (before browser paint)
 3) Browser paint (pixels on screen)
-4) useEffect callbacks (after paint)`}</pre>
+4) useEffect callbacks (usually after paint)
+
+Interaction-caused updates may run useEffect before paint.`}</pre>
                                 </div>
                             </section>
 

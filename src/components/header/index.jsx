@@ -67,6 +67,7 @@ const Header = () => {
 
                     <div
                         className="miniStats"
+                        role="group"
                         aria-label="Frontend focus areas"
                     >
                         <span className="stat">

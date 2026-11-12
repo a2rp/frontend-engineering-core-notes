@@ -52,7 +52,7 @@ const AnimationTopic = () => {
                 <h2 className="title">Animation</h2>
                 <p className="sub">{content.sub}</p>
 
-                <div className="pillRow" aria-label="At a glance">
+                <div className="pillRow" role="group" aria-label="At a glance">
                     <span className="pill">
                         <FiPlayCircle /> Transitions and keyframes
                     </span>
